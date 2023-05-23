@@ -1,9 +1,11 @@
 const express = require ('express');
 const app = express()   
 const PORT = process.env.PORT || 3000;
+const reservaRuta = require ('./rutas/reservaRuta')
+const vehiculosRuta = require ('./rutas/vehiculosRuta')
 
-app.get('/alumnos' , (req, res)=> {
-    res.json({mensaje: "Hola mundo desde alumnos", estado: "OK"} ).status(200) 
-})
+app.use(express.json()) 
+app.use('/api/reservas', reservaRuta)
+app.use('/api/vehiculos', vehiculosRuta)
 
 app.listen(PORT, () => {console.log(`App lista escuchada en el puerto ${PORT} `) }) 
