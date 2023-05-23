@@ -1,5 +1,5 @@
 const express = require('express')
-const vehiculoControladores = require('../controladores/vehiculosController')
+const vehiculoControladores = require('../controladores/vehiculos.controller')
 
 const vehiculoRuta = express.Router()
 

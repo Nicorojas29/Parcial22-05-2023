@@ -9,3 +9,9 @@
 - `npm start`
 
 ### Consideraciones especiales:
+
+- Logre hacer el controlador de vehiculos y reserva
+
+- me guarda bien los cambio con nodemon
+
+- No puedo ejecutar bien las consultas en postman

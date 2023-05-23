@@ -36,27 +36,27 @@ const postReservas = (req, res) =>{
     const reservasData = req.body
     const existe = reservas.find ( reserva => reserva.id == reservasData.id)
     if (!existe) {
-        if (!reservasData.tieneCurso )
-            reservasData.tieneCurso = false
-        if (!reservasData.nombre) {
-            res.status(400).json({mensaje: `No puedo generar la reserva con id ${reservaData.id} por no tener nombre`}) 
+        if (!reservasData.habilitado )
+            reservasData.habilitado= false
+        if (!reservasData.cliente) {
+            res.status(400).json({mensaje: `No puedo generar la reserva con id ${reservasData.id} por no tener nombre`}) 
         } else {
              reservas.push(reservasData)
              res.status(201).json({mensaje: `La reserva con id ${reservasData.id} fue creada correctamente`}) 
         }
       } else {
-        res.status(400).json({mensaje: `La reserva con id ${reservaData.id} ya existe en la base de datos`}) 
+        res.status(400).json({mensaje: `La reserva con id ${reservasData.id} ya existe en la base de datos`}) 
      }
  }
 
- const putReservas= (req, res) => { //update es modificar 
-    const id = req.params.id // en la const tengo el num dni y en el cuerpo para modificar, es un path parameter
+ const putReservas= (req, res) => {  
+    const id = req.params.id 
     const reservasData = req.body
     const indice = reservas.findIndex ( reserva => reserva.id== id)
     if (indice >= 0 ){
-        reservas[indice].nombre = reservasData.nombre
-        reservas[indice].tieneCurso = 
-          (!reservasData.tieneCurso) ? reservasData.tieneCurso : reservas[indice].tieneCurso
+        reservas[indice].cliente = reservasData.marca
+        reservas[indice].habilitado= true
+          (!reservasData.habilitado) ? reservasData.habilitado : reservas[indice].habilitado
         res.status(201).json({"reserva": reservas[indice]})
     }
     res.status(404).json

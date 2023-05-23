@@ -1,5 +1,5 @@
 const express = require('express')
-const reservaControladores = require('../controladores/reservaController')
+const reservaControladores = require('../controladores/reserva.controller')
 
 const reservaRuta = express.Router()
 
